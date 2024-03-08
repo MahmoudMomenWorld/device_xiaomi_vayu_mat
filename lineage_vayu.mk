@@ -10,7 +10,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/vayu/device.mk)
 
-# Inherit common AOSP configurations
+# Inherit some common Matrixx stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Matrixx
@@ -20,13 +20,16 @@ MATRIXX_CHIPSET := SM8150
 MATRIXX_BATTERY := 5160mah
 MATRIXX_DISPLAY := 1080x2400
 
-## Device identifier
-PRODUCT_BRAND := Xiaomi
+# Device identifier
+PRODUCT_NAME := lineage_vayu
 PRODUCT_DEVICE := vayu
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := lineage_vayu
+PRODUCT_BRAND := POCO
+PRODUCT_MODEL := POCO X3 Pro
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # GMS
+WITH_GMS := true
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_GAPPS_ARCH := arm64
 
@@ -34,19 +37,12 @@ TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Gapps
-WITH_GMS := true
 BUILD_GOOGLE_CONTACTS := true
 BUILD_GOOGLE_DIALER := true
 BUILD_GOOGLE_MESSAGE := true
 
-# Exclude Redundants 
+# Excludes 
 TARGET_EXCLUDES_AUDIOFX := true
 TARGET_EXCLUDES_VIA := true
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="vayu_global-user 13 TKQ1.221013.002 V14.0.3.0.TJUMIXM release-keys" \
-    PRODUCT_NAME=vayu_global \
-    PRODUCT_MODEL=M2102J20SG
-
-BUILD_FINGERPRINT := POCO/vayu_global/vayu:13/RKQ1.200826.002/V14.0.3.0.TJUMIXM:user/release-keys
 
